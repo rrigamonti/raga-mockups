@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hopetoun Bar & Bistro â€” Bar & Bistro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --primary: #2c3e50;
+  --primary-dark: #1a2530;
+  --accent: #e67e22;
+  --bg: #f9f9f9;
+  --bg-alt: #f0f0f0;
+  --text: #1a1a1a;
+  --text-light: #5a5a5a;
+  --white: #ffffff;
+  --radius: 12px;
+}
+body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); line-height: 1.6; }
+.serif { font-family: 'Playfair Display', serif; }
+
+/* NAV */
+nav { position: fixed; top: 0; width: 100%; z-index: 100; background: rgba(0,0,0,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 0 2rem; }
+nav .inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 72px; }
+nav .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; color: var(--white); letter-spacing: 0.5px; }
+nav .logo span { color: var(--accent); }
+nav ul { list-style: none; display: flex; gap: 2rem; }
+nav ul li a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; letter-spacing: 0.3px; }
+nav ul li a:hover { color: var(--accent); }
+nav .cta-btn { background: var(--accent); color: var(--primary-dark); padding: 10px 24px; border-radius: 8px; font-weight: 600; font-size: 0.85rem; text-decoration: none; transition: all 0.3s; letter-spacing: 0.3px; }
+nav .cta-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+
+/* HERO */
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; background: linear-gradient(160deg, var(--primary-dark) 0%, var(--primary) 50%, #3d5a78 100%); overflow: hidden; padding: 2rem; }
+.hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+.hero-content { position: relative; z-index: 2; max-width: 700px; }
+.hero-badge { display: inline-block; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: var(--white); padding: 6px 18px; border-radius: 50px; font-size: 0.8rem; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.5rem; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.5rem); color: var(--white); line-height: 1.1; margin-bottom: 1.2rem; font-weight: 700; }
+.hero h1 em { font-style: italic; color: var(--accent); }
+.hero p { font-size: 1.15rem; color: rgba(255,255,255,0.8); max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.7; }
+.hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn-primary { background: var(--accent); color: var(--primary-dark); padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.3s; display: inline-flex; align-items: center; gap: 8px; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+.btn-secondary { background: transparent; border: 1.5px solid rgba(255,255,255,0.4); color: var(--white); padding: 14px 32px; border-radius: 8px; font-weight: 500; font-size: 0.95rem; text-decoration: none; transition: all 0.3s; }
+.btn-secondary:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+/* FEATURES STRIP */
+.features-strip { background: var(--white); padding: 3rem 2rem; border-bottom: 1px solid #eee; }
+.features-strip .inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center; }
+.feature-item .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+.feature-item h4 { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.3rem; }
+.feature-item p { font-size: 0.82rem; color: var(--text-light); }
+
+/* SECTIONS */
+section { padding: 5rem 2rem; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 3.5rem; }
+.section-header .overline { font-size: 0.75rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
+.section-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--primary-dark); margin-bottom: 1rem; }
+.section-header p { font-size: 1.05rem; color: var(--text-light); max-width: 550px; margin: 0 auto; }
+
+/* ABOUT SPLIT */
+.about-section { background: var(--bg-alt); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.about-image { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: var(--radius); height: 400px; display: flex; align-items: center; justify-content: center; color: var(--white); font-family: 'Playfair Display', serif; font-size: 1.5rem; font-style: italic; padding: 2rem; text-align: center; }
+.about-text h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--primary-dark); margin-bottom: 1.2rem; }
+.about-text p { color: var(--text-light); margin-bottom: 1rem; line-height: 1.8; }
+.about-text .highlight { display: flex; gap: 2rem; margin-top: 2rem; }
+.about-text .highlight div { text-align: center; }
+.about-text .highlight .number { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--primary); }
+.about-text .highlight .label { font-size: 0.8rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; }
+
+/* CARDS */
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: 0 2px 20px rgba(0,0,0,0.06); transition: all 0.3s; }
+.card:hover { transform: translateY(-4px); box-shadow: 0 8px 40px rgba(0,0,0,0.1); }
+.card-img { height: 220px; background: linear-gradient(135deg, var(--primary), var(--accent)); display: flex; align-items: center; justify-content: center; color: var(--white); font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; }
+.card-body { padding: 1.8rem; }
+.card-body h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0.6rem; color: var(--primary-dark); }
+.card-body p { font-size: 0.9rem; color: var(--text-light); line-height: 1.7; margin-bottom: 1rem; }
+.card-body .price { font-weight: 700; color: var(--primary); font-size: 1.1rem; }
+
+/* TESTIMONIALS */
+.testimonials { background: var(--primary-dark); color: var(--white); }
+.testimonials .section-header .overline { color: var(--accent); }
+.testimonials .section-header h2 { color: var(--white); }
+.testimonials .section-header p { color: rgba(255,255,255,0.7); }
+.testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.testimonial { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 2rem; }
+.testimonial .stars { color: var(--accent); font-size: 1.1rem; margin-bottom: 1rem; }
+.testimonial p { font-style: italic; color: rgba(255,255,255,0.85); line-height: 1.7; margin-bottom: 1rem; }
+.testimonial .author { font-weight: 600; font-size: 0.85rem; color: var(--accent); }
+
+/* CTA BANNER */
+.cta-banner { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); text-align: center; padding: 5rem 2rem; }
+.cta-banner h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--white); margin-bottom: 1rem; }
+.cta-banner p { color: rgba(255,255,255,0.8); max-width: 500px; margin: 0 auto 2rem; font-size: 1.05rem; }
+
+/* FOOTER */
+footer { background: #0a0a0a; color: rgba(255,255,255,0.6); padding: 3rem 2rem 2rem; }
+footer .inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; }
+footer h4 { color: var(--white); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; }
+footer p, footer a { font-size: 0.85rem; color: rgba(255,255,255,0.5); text-decoration: none; line-height: 2; }
+footer a:hover { color: var(--accent); }
+footer .brand { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--white); margin-bottom: 0.8rem; }
+footer .bottom { text-align: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.8rem; }
+
+/* RAGA BADGE */
+.raga-badge { position: fixed; bottom: 20px; right: 20px; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); color: white; padding: 10px 18px; border-radius: 50px; font-size: 0.75rem; z-index: 200; display: flex; align-items: center; gap: 8px; }
+.raga-badge a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav ul { display: none; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  footer .inner { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav><div class="inner">
+  <div class="logo serif">Hopetoun <span>Bar & Bistro</span></div>
+  <ul><li><a href="#">Home</a></li><li><a href="#">Menu</a></li><li><a href="#">Drinks</a></li><li><a href="#">About</a></li><li><a href="#">Book</a></li></ul>
+  <a href="#" class="cta-btn">Book a Table</a>
+</div></nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Bathgate, West Lothian</div>
+    <h1 class="serif">Eat, Drink &amp; <em>Relax</em> in Bathgate</h1>
+    <p>A stylish bar and bistro serving freshly prepared food and great drinks in the heart of Bathgate.</p>
+    <div class="hero-buttons">
+      <a href="#" class="btn-primary">Book a Table &#8594;</a>
+      <a href="#" class="btn-secondary">View Menu</a>
+    </div>
+  </div>
+</section>
+
+<div class="features-strip"><div class="inner">
+  <div class="feature-item"><div class="icon">&#127860;</div><h4>Fresh Food</h4><p>Prepared daily</p></div>
+  <div class="feature-item"><div class="icon">&#127867;</div><h4>Craft Drinks</h4><p>Cocktails and craft beer</p></div>
+  <div class="feature-item"><div class="icon">&#11088;</div><h4>Top Rated</h4><p>Five star reviews</p></div>
+  <div class="feature-item"><div class="icon">&#128197;</div><h4>Book Online</h4><p>Easy reservations</p></div>
+</div></div>
+
+<section class="about-section">
+  <div class="section-inner about-grid">
+    <div class="about-image">"Bathgate's favourite bar and bistro"</div>
+    <div class="about-text">
+      <h2 class="serif">The Heart of Bathgate</h2>
+      <p>Hopetoun Bar and Bistro serves freshly prepared meals in a stylish, welcoming setting.</p>
+      <p>From lazy brunches to evening dinners, we have something for every occasion.</p>
+      <div class="highlight">
+        <div><div class="number">4.7</div><div class="label">Star Rating</div></div>
+        <div><div class="number">250+</div><div class="label">Reviews</div></div>
+        <div><div class="number">7</div><div class="label">Days a Week</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="overline">Menu</div>
+      <h2 class="serif">What We Serve</h2>
+      <p>Fresh, locally sourced food</p>
+    </div>
+    <div class="cards-grid">
+      <div class="card"><div class="card-img">Lunch</div><div class="card-body"><h3>Lunch</h3><p>Salads, burgers, and bistro classics.</p></div></div>
+      <div class="card"><div class="card-img">Dinner</div><div class="card-body"><h3>Dinner</h3><p>Evening specials and sharing plates.</p></div></div>
+      <div class="card"><div class="card-img">Drinks</div><div class="card-body"><h3>Drinks</h3><p>Craft cocktails, wines and local beers.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="overline">Guest Reviews</div>
+      <h2 class="serif">What People Are Saying</h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Best food in Bathgate. The burgers are incredible."</p><div class="author">Google Review</div></div>
+      <div class="testimonial"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Great atmosphere, friendly staff, delicious food."</p><div class="author">Google Review</div></div>
+      <div class="testimonial"><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>"Our go-to spot. Consistently excellent."</p><div class="author">Google Review</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <h2 class="serif">Your table is waiting</h2>
+  <p>Book online at Hopetoun Bar and Bistro.</p>
+  <a href="#" class="btn-primary">Reserve Now &#8594;</a>
+</section>
+
+<footer><div class="inner">
+  <div><div class="brand serif">Hopetoun Bar & Bistro</div><p>Bar &amp; Bistro in Bathgate.</p></div>
+  <div><h4>Menu</h4><a href="#">Lunch</a><br><a href="#">Dinner</a><br><a href="#">Drinks</a><br><a href="#">Specials</a><br></div>
+  <div><h4>Visit</h4><a href="#">Book Online</a><br><a href="#">Events</a><br><a href="#">Gift Vouchers</a><br></div>
+  <div><h4>Contact</h4><p>Bathgate</p><p>info@hopetounbarandbistro.com</p></div>
+</div><div class="bottom">Design concept by RAGA Marketing &mdash; ragamarketing.com</div></footer>
+<div class="raga-badge">
+  Design mockup by <a href="https://ragamarketing.com">RAGA Marketing</a>
+</div>
+</body>
+</html>
